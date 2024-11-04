@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+            
+        <div class="input_area">
+            <div>
+                <h1>Financial Dashboard</h1>
+                <H2>welcome to Balde-Dash</H2>
+            </div>
+           <div class="leftAndRight">
+            <div class="container2">
+                <div class="revenue"> 
+                    <label for="revvalue">Add Revenue</label>
+                    <div>
+                        <input type="text" name="revvalue" id="revenue-value" placeholder="add_revenue">
+                        <button onclick="AddRevenue()" title="click to add" id="revenue-btn">Add Revenue</button>
+                    </div>
+                </div>
+                <div id="revArray"></div>
+                <div id="Tryagain">
+                    <p id="Tryagain2"></p>
+                </div>
+        </div>
+       
+        <div class="container3">
+                <div class="expense"> 
+                    <label for="expvalue">Add expense</label>
+                    <div>
+                        <input type="text" name="expvalue" id="expense-value" placeholder="add_expense">
+                        <button onclick="AddExpense()" id="expense-btn">Add Expense</button>
+                    </div>
+                </div>
+                <div>
+                    <div id="expArray"></div>
+                </div>
+                <div id="Tryagain">
+                    <p id="TryagainExp"></p>
+                </div>
+
+       </div>
+           </div>
+        </div>
+
+
+
+       
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Transactions</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <div class="card">
+                <h2>Total Revenue</h2>
+                <p id="revenue">£0.00</p>
+            </div>
+            <div class="card">
+                <h2>Total Expenses</h2>
+                <p id="expense">£0.00</p>
+                <button>Refresh</button>
+            </div>
+            <div class="card">
+                <h2>Last expense</h2>
+                <p>£0.00</p>
+            </div>
+            <div class="card">
+                <button onclick="showCurrent()">Check Current Balance</button>
+                <div class="curent_balance" style="display: none;"> 
+                    <h2>Current Balance</h2>
+                    <p id="current-balance">£0.00</p>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+
+ <script src="index.js"></script>
+
+</body>
+</html>
+
+</html>

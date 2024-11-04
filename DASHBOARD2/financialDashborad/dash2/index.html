@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Advanced Financial Dashboard</title>
+   
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        Financial Dashboard
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">FinancePro</div>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Dashboard Section -->
+        <div class="dashboard">
+            <!-- Card 1: Total Income -->
+            <div class="card">
+                <h2>Total Income</h2>
+                <p id="totalIncome">$ 75,000</p>
+            </div>
+
+            <!-- Card 2: Total Expenses -->
+            <div class="card">
+                <h2>Total Expenses</h2>
+                <p id="totalExpense">$ 30,000</p>
+            </div>
+
+            <!-- Card 3: Total Savings -->
+            <div class="card">
+                <h2>Total Savings</h2>
+                <p>$ 45,000</p>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary">
+            <div class="summary-item">
+                <h3>Net Worth</h3>
+                <p id="networth">$ 120,000</p>
+            </div>
+            <div class="summary-item">
+                <h3>Investments</h3>
+                <p>$ 50,000</p>
+            </div>
+            <div class="summary-item">
+                <h3>Total Debt</h3>
+                <p>$ 15,000</p>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <!-- Input Box 1: Add Transaction -->
+           
+            <div class="input-box "  >
+                <button  id="hideTransaction-btn" onclick="hideTransaction()">Add new Transaction</button>
+               <div id="transaction">
+                <h3>Add New Transaction</h3>
+                <input type="date" placeholder="Date" id="dateValue" required />
+                
+                <input type="number" placeholder="Amount" required id="totalInputIncomeValue" step="0.01" />
+                
+                <input type="text" placeholder="Description" id="description" />
+                
+                <input type="text" list="Categories" required name="Categories" id="Category" placeholder="Category" />
+                
+                <datalist id="Categories">
+                  <option value="Groceries"></option>
+                  <option value="Travel"></option>
+                  <option value="Home"></option>
+                  <option value="Cloths"></option>
+                  
+                </datalist>
+
+                <div class="typeOfTransaction">
+                    <h2>Select the type of Transaction(e.i: expense or income)</h2>
+                    <div class="theOptions">
+                        <label>
+                            Income
+                            <input type="radio" name="typeOfTransaction" value="Income" />
+                            
+                        </label>
+                        <br />
+                        <label>
+                            Expense
+                            <input type="radio" name="typeOfTransaction" value="Expense" />
+                        </label>
+                    </div>
+                </div>
+            
+                <button id="transaction-btn" type="submit" onclick="transaction()" disabled>Add Transaction</button>
+               </div>
+            </div>
+            
+
+
+            <div class="input-box">
+                <h3>Add New Expense</h3>
+                <input type="text" placeholder="Category">
+                <input type="number" placeholder="Amount" step="0.01">
+                <button>Add Budget</button>
+            </div>
+
+      
+            <div class="input-box">
+                <h3>Set Savings Goal</h3>
+                <input type="number" placeholder="Goal Amount" step="0.01">
+                <button>Set Goal</button>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts">
+            <div class="chart-card">
+                <h3>Income vs Expenses</h3>
+                <canvas id="incomeExpensesChart" style="width: 100%; height: 300px;"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Net Worth Over Time</h3>
+                <canvas id="netWorthChart" style="width: 100%; height: 300px;"></canvas>
+            </div>
+        </div>
+
+        <!-- Notifications Section -->
+        <div class="notifications">
+            <h3>Notifications</h3>
+            <div class="notification-item">🚨 Alert: You have exceeded your budget limit for this month.</div>
+            <div class="notification-item">🔔 Reminder: Upcoming payment due on Oct 30, 2024.</div>
+            <div class="notification-item">✅ Action: Your investment portfolio has been updated.</div>
+        </div>
+
+        <!-- Recent Transactions Section -->
+        <div class="transactions">
+            <h3>Recent Transactions</h3>
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>In/Out</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+
+
+                   <!-- <tr>
+                        <td>Oct 18, 2024</td>
+                        <td>Salary</td>
+                        <td>Income</td>
+                        <td>$ 5,000</td>
+                    </tr>
+                   <tr>
+                        <td>Oct 17, 2024</td>
+                        <td>Groceries</td>
+                        <td>Expense</td>
+                        <td>$ 150</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 16, 2024</td>
+                        <td>Investment</td>
+                        <td>Asset</td>
+                        <td>$ 1,000</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 15, 2024</td>
+                        <td>Utilities</td>
+                        <td>Expense</td>
+                        <td>$ 200</td>
+                    </tr> --> 
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 FinancePro. All rights reserved.</p>
+        </footer>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
